@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--Document-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Alias Studio Code</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js" crossorigin="anonymous" defer></script><!-- Anime.js -->
+        <script src="script.js" defer></script>
+        <style>
+             body {
+              background-color: #1f1f1f;
+              z-index: 0;
+              transition: 0.2s ease;
+              font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+    <div class="barra1">
+        <div class="logo1">
+            <img class="logo" src=".img/Icon.png">
+        </div>
+        <div class="btn" data-tooltip="Archivos">
+            <img src=".img/Archivos.svg">
+        </div>
+        <div class="btn" data-tooltip="Búsqueda">
+            <img src=".img/Búsqueda.svg">
+        </div>
+        <div class="btn" data-tooltip="GitHub">
+            <img src=".img/GitHub.svg">
+        </div>
+        <div class="btn" data-tooltip="IA">
+            <img src=".img/IA.svg">
+        </div>
+        <div class="btn" data-tooltip="Complementos">
+            <img src=".img/Complementos.svg">
+        </div>
+        <div class="btn" data-tooltip="Lenguaje">
+            <img id="langIcon" src=".img/Lenguaje (Deaful).svg">
+        </div>
+        <div class="btn"  id="Cuenta" data-tooltip="Cuenta">
+            <img src=".img/Cuenta.svg">
+        </div>
+        <div class="btn" id="Ajustes" data-tooltip="Ajustes">
+            <img src=".img/Ajustes.svg">
+        </div>
+    </div>
+    <!--Options Bar 2-->
+        <div class="barra2">
+            <div class="BT1" id="btn2">Compilar</div>
+            <div class="BT2" id="btn2">Crear ejecutable</div>
+            <div class="BT3" id="btn2">Crear instalador y desinstalador</div>
+            <div class="BT4" id="btn2">Ejecutar</div>
+            <div class="BT5" id="btn2">Panel de Control</div>
+            <div class="BT6" id="btn2">Más...</div>
+            <input type="text" id="BuscadorInput" placeholder="Buscador de archivos y más...">
+            <div class="InfoDelCódigo">
+                <div class="NºErrores">
+                    <img class="svg9"  src=".img\Error.svg">
+                    <p class="TxtError">0</p>
+                </div>
+                <div class="NºAdvertencias">
+                    <img class="svg10" src=".img\Alerta.svg">
+                    <p class="TxtAlerta">0</p>
+                </div>
+                <div class="LinCol">
+                    <p class="TxtLin">Lín. </p>
+                    <p class="TxtLin1">1</p>
+                    <p class="TxtCol">Col. </p>
+                    <p class="TxtCol1">1</p>
+                </div>
+                <div class="Codificacion">
+                    <p class="TxtCod">Codificación:</p>
+                    <p class="TxtTCod">UTF-8</p>
+                </div>
+            </div>
+        </div>
+    <!-- Options Bar 3 -->
+        <div class="barra3">
+            <div class="margen1"></div>
+            <div class="limpiar-pestaña"></div>
+            <div class="crear-pestaña" ></div>
+            <div class="margen2"></div>
+        </div>
+    <!-- Zona visualizacion de las pestañas -->
+        <div class="caja-vis-pes"></div>
+    <!--Screens--> 
+    <!--carga...-->
+    </body>
+    </html>
+
