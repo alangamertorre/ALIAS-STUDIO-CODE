@@ -174,7 +174,7 @@ BARRA SUPERIOR (Barra 2)
   background-position: left;
   background-repeat: no-repeat;
   background-size: 1.2rem;
-  background-image: url(".img/Búsqueda.svg");
+  background-image: url("img/Búsqueda.svg");
   padding-left: 1.2rem;
   box-sizing: border-box;
 }
@@ -303,11 +303,11 @@ BARRA DE PESTAÑAS (Barra 3)
 }
 
 .crear-pestaña {
-  background-image: url(".img/Create.svg");
+  background-image: url("img/Create.svg");
 }
 
 .limpiar-pestaña {
-  background-image: url(".img/Clear.svg");
+  background-image: url("img/Clear.svg");
 }
 
 .pestaña {
@@ -337,7 +337,7 @@ BARRA DE PESTAÑAS (Barra 3)
   width: 1rem;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(".img/Clear.svg");
+  background-image: url("img/Clear.svg");
   background-position: center;
   user-select: none;
   margin-right: 0.2rem;
@@ -349,7 +349,7 @@ BARRA DE PESTAÑAS (Barra 3)
   width: 1rem;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(".img/Icon.png");
+  background-image: url("img/Icon.png");
   background-position: center;
   user-select: none;
   margin-left: 0.5rem;
@@ -371,7 +371,7 @@ BARRA DE PESTAÑAS (Barra 3)
   box-sizing: border-box;
   overflow: auto;
   display: flex;
-  background-image: url(".img/background-info.png");
+  background-image: url("img/background-info.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -455,3 +455,4 @@ MEDIA QUERIES
  14–16px texto normal 
  20–24px títulos
 */
+
