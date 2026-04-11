@@ -1,26 +1,3 @@
-/* BARA GENERAL */
-.sistem-bar {
-  position: fixed;
-  height: 40px;
-  width: 100%;
-  top: 0%;
-  left: 0%;
-  right: 0%;
-  z-index: 1000;
-  display: flex;
-  user-select: none;
-}
-
-/* APP */
-
-.app {
-  position: relative;
-  overflow: hidden;
-  padding-top: 80px;
-  display: flex;
-  height: 100vh;
-  width: 100%;
-}
 
 /* ==================== BARRA LATERAL ==================== */
 .barra1 {
