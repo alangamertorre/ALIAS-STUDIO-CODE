@@ -1,53 +1,102 @@
-<!DOCTYPE html>
+<!doctype html>
 <!--Document-->
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Alias Studio Code</title>
-        <link rel="stylesheet" href="style.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js" crossorigin="anonymous" defer></script><!-- Anime.js -->
-        <script src="script.js" defer></script>
-        <style>
-             body {
-              background-color: #1f1f1f;
-              z-index: 0;
-              transition: 0.2s ease;
-              font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            }
-        </style>
-    </head>
-    <body>
-    <div class="barra1">
-        <div class="logo1">
-            <img class="logo" src="img/Icon.png">
-        </div>
-        <div class="btn" data-tooltip="Archivos">
-            <img src="img/Archivos.svg">
-        </div>
-        <div class="btn" data-tooltip="Búsqueda">
-            <img src="img/Búsqueda.svg">
-        </div>
-        <div class="btn" data-tooltip="GitHub">
-            <img src="img/GitHub.svg">
-        </div>
-        <div class="btn" data-tooltip="IA">
-            <img src="img/IA.svg">
-        </div>
-        <div class="btn" data-tooltip="Complementos">
-            <img src="img/Complementos.svg">
-        </div>
-        <div class="btn" data-tooltip="Lenguaje">
-            <img id="langIcon" src="img/Lenguaje (Deaful).svg">
-        </div>
-        <div class="btn"  id="Cuenta" data-tooltip="Cuenta">
-            <img src="img/Cuenta.svg">
-        </div>
-        <div class="btn" id="Ajustes" data-tooltip="Ajustes">
-            <img src="img/Ajustes.svg">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alias Studio Code</title>
+    <!-- Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js" crossorigin="anonymous"></script>
+
+    <!-- loader.js-->
+    <script src="./vs/loader.js"></script>
+
+    <!-- El resto-->
+    <script src="script.js" defer></script>
+    <script src="sistem/sistem.js" defer></script>
+    <script src="pes/n-pes/n-pes.js" defer></script>
+    <script src="pes/editor/editor.js" defer></script>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="sistem/style.css" />
+    <link rel="stylesheet" href="pes/n-pes/n-pes.css" />
+    <script>
+        document.addEventListener("contextmenu", (e) => {
+            e.preventDefault();
+        });
+    </script>
+    <style>
+        body {
+            background-color: #1f1f1f;
+            z-index: 0;
+            transition: 0.2s ease;
+            flex-direction: column;
+            position: fixed;
+            font-family:
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Oxygen,
+                Ubuntu,
+                Cantarell,
+                "Open Sans",
+                "Helvetica Neue",
+                sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sistem-bar">
+        <div class="title-bar">
+            <img src="img/Icon.png" alt="icon">
+            <div class="title">Alias Studio Code</div>
+            <div class="buttons">
+                <button id="btn-min" class="butons">
+                    <img src="img/bar-sis-minimize.svg" alt="minimize">
+                </button>
+                <button id="btn-max" class="butons">
+                    <img src="img/bar-sis-maximize.svg" alt="maximize" id="btn-maximize">
+                </button>
+                <button id="btn-close" class="butons">
+                    <img src="img/bar-sis-cerrar.svg" alt="close">
+                </button>
+            </div>
         </div>
     </div>
-    <!--Options Bar 2-->
+
+    <!--APP-->
+    <div class="app">
+        <div class="barra1">
+            <div class="btn" data-tooltip="Archivos" id="archivos">
+                <img src="img/Archivos.svg" alt="files" />
+            </div>
+            <div class="btn" data-tooltip="Búsqueda" id="busqueda">
+                <img src="img/Busqueda.svg" alt="shearc" />
+            </div>
+            <div class="btn" data-tooltip="GitHub" id="gh">
+                <img src="img/GitHub.svg" alt="git-h" />
+            </div>
+            <div class="btn" data-tooltip="IA" id="ia">
+                <img src="img/IA.svg" alt="ia" />
+            </div>
+            <div class="btn" data-tooltip="Complementos" id="complementos">
+                <img src="img/Complementos.svg" alt="cpl" />
+            </div>
+            <div class="btn" data-tooltip="Lenguaje" id="lenguaje">
+                <img id="langIcon" src="img/Lenguaje.svg" alt="leng" />
+            </div>
+            <div class="btn-" id="Cuenta" data-tooltip="Cuenta">
+                <img src="img/Cuenta.svg" alt="cuenta" />
+            </div>
+            <div class="btn-" id="Ajustes" data-tooltip="Ajustes">
+                <img src="img/Ajustes.svg" alt="confg" />
+            </div>
+        </div>
+        <!--Options Bar 2-->
         <div class="barra2">
             <div class="BT1" id="btn2">Compilar</div>
             <div class="BT2" id="btn2">Crear ejecutable</div>
@@ -55,20 +104,20 @@
             <div class="BT4" id="btn2">Ejecutar</div>
             <div class="BT5" id="btn2">Panel de Control</div>
             <div class="BT6" id="btn2">Más...</div>
-            <input type="text" id="BuscadorInput" placeholder="Buscador de archivos y más...">
+            <input type="text" id="BuscadorInput" placeholder="Buscador de archivos y más..." />
             <div class="InfoDelCódigo">
                 <div class="NºErrores">
-                    <img class="svg9"  src="img\Error.svg">
+                    <img class="svg9" src="img/Error.svg" />
                     <p class="TxtError">0</p>
                 </div>
                 <div class="NºAdvertencias">
-                    <img class="svg10" src="img\Alerta.svg">
+                    <img class="svg10" src="img/Alerta.svg" />
                     <p class="TxtAlerta">0</p>
                 </div>
                 <div class="LinCol">
-                    <p class="TxtLin">Lín. </p>
+                    <p class="TxtLin">Lín.</p>
                     <p class="TxtLin1">1</p>
-                    <p class="TxtCol">Col. </p>
+                    <p class="TxtCol">Col.</p>
                     <p class="TxtCol1">1</p>
                 </div>
                 <div class="Codificacion">
@@ -77,18 +126,125 @@
                 </div>
             </div>
         </div>
-    <!-- Options Bar 3 -->
+        <!-- Options Bar 3 -->
         <div class="barra3">
             <div class="margen1"></div>
             <div class="limpiar-pestaña"></div>
-            <div class="crear-pestaña" ></div>
+            <div class="crear-pestaña"></div>
             <div class="margen2"></div>
         </div>
-    <!-- Zona visualizacion de las pestañas -->
-        <div class="caja-vis-pes"></div>
-    <!--Screens--> 
-    <!--carga...-->
-    </body>
-    </html>
+        <!-- Zona visualizacion de las pestañas -->
+        <div class="caja-visualizacion">
+            <div class="visualizador" id="vis-n-pes">
+                <div class="caja1-np">
+                    <div class="logo-np"></div>
+                    <div class="txt-content1-np">
+                        <h1 class="h1-np">¿En qué trabajaremos?</h1>
+                        <h2 class="h2-np" style="font-size:larger;">Alias Studio Code</h2>
+                        <button id="btn-open">
+                            Abrir carpeta
+                            <div class="btn-open2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    aria-hidden="true" class="svg-btn-open">
+                                    <polyline points="6,10 12,16 18,10" fill="none" stroke="white" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </button>
+                        <div class="menu-des-btn-open">
+                            <button class="opt1-btn-open">Abrir archivo</button>
+                            <div style="height: 1px; width: 100%; background-color: rgba(21, 50, 78, 0.959)"
+                                class="lin-barra4"></div>
+                            <button class="opt2-btn-open">Abrir proyecto</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="caja2-np">
+                    <h2 class="txt-h2-files-np">Archivos recientes</h2>
+                    <div class="cont-arch-np">
+                        <p id="a1"></p>
+                        <p id="a2"></p>
+                        <p id="a3"></p>
+                        <p id="a4"></p>
+                        <p id="a5"></p>
+                        <p id="a6"></p>
+                        <p id="a7"></p>
+                        <p id="a8"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="visualizador" id="vis-editor">
+                <div id="editor" style="width:100%; height:100vh; background-color: #1f1f1f;"></div>
+            </div>
+        </div>
+        <!-- Options Bar 4 (Btn functions) -->
+        <div class="barra4">
+            <div class="w-bar"></div>
+            <div class="func-btn1">
+                <h2 class="tit-btn1">Archivos</h2>
+                <div style="height: 1.5px; width: 100%; background-color: #444" class="lin-barra4"></div>
 
+                <div class="btn1-c">
+                    <div class="c-btn1">
+                        <p class="p-btn1">Editores abiertos</p>
+                        <div class="y"></div>
+                        <!--Añadir futuramente-->
+                    </div>
+                    <p class="txt-adv" id="txt_adv1">No hay editores abiertos.</p>
+                </div>
 
+                <div style="height: 1.5px; width: 100%; background-color: #444" class="lin-barra4"></div>
+
+                <div class="btn1-c">
+                    <div class="c-btn1">
+                        <p class="p-btn1" id="nombre-carpeta-abierta">Archivos abiertos</p>
+                        <div class="y"></div>
+                        <!--""-->
+                    </div>
+                    <div class="txt-adv-btn1">
+                        <p class="txt-adv" id="txt_adv2">No hay archivos abiertos.</p>
+                        <button class="txt-adv" id="btn-open"
+                            style="margin-top: 8px; transform: scale(0.8); font-size: 16px; display: none;">
+                            Abrir carpeta
+                            <div class="btn-open2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    aria-hidden="true" class="svg-btn-open">
+                                    <polyline points="6,10 12,16 18,10" fill="none" stroke="white" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </button>
+                        <div class="menu-des-btn-open" id="btn1-open">
+                            <button class="opt1-btn-open">Abrir archivo</button>
+                            <div style="height: 1px; width: 100%; background-color: rgba(21, 50, 78, 0.959)"
+                                class="lin-barra4"></div>
+                            <button class="opt2-btn-open">Abrir proyecto</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="height: 1.5px; width: 100%; background-color: #444" class="lin-barra4"></div>
+
+                <div class="btn1-c">
+                    <div class="c-btn1">
+                        <p class="p-btn1">Línea de tiempo</p>
+                        <div class="y"></div>
+                        <!--""-->
+                    </div>
+                    <p class="txt-adv" id="txt_adv3">No se ha guardado nada.</p>
+                </div>
+
+                <div style="height: 1.5px; width: 100%; background-color: #444" class="lin-barra4"></div>
+
+            </div>
+            <div class="func-btn2"></div>
+            <div class="func-btn3"></div>
+            <div class="func-btn4"></div>
+            <div class="func-btn5"></div>
+            <div class="func-btn6"></div>
+        </div>
+        <!--carga...-->
+    </div>
+</body>
+
+</html>

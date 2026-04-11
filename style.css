@@ -1,50 +1,64 @@
-/* ====================
-BARRA LATERAL
-==================== */
+/* BARA GENERAL */
+.sistem-bar {
+  position: fixed;
+  height: 40px;
+  width: 100%;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  z-index: 1000;
+  display: flex;
+  user-select: none;
+}
+
+/* APP */
+
+.app {
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+/* ==================== BARRA LATERAL ==================== */
 .barra1 {
   background-color: #181818;
   position: fixed;
-  height: 100%;
+  height: calc(100% - var(--h-sistem_bar));
   width: 48px;
-  top: 0;
-  left: 0;
+  top: var(--h-sistem_bar);
+  left: 0px;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 0.5rem;
   border-radius: 1px;
-  border: 1px solid #444444;
+  border: 1px solid var(--border);
   user-select: none;
   color: var(--text-secondary);
 }
 
-/* Logo */
-.logo1,
-.logo {
+
+/* ==================== BOTONES DE LA BARRA ==================== */
+.barra1 .btn {
+  position: relative;
+  /* referencia para tooltip */
+  width: 39px;
+  height: 39px;
+  margin-bottom: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
-  box-shadow: 0 2px 6px rgba(68, 68, 68, 0.2);
-  user-select: none;
-}
-.logo1 {
-  height: 44px;
-  width: 44px;
-  margin-bottom: 0.5rem;
-}
-.logo {
-  height: 40px;
-  width: 40px;
-  margin-bottom: 1rem;
+  cursor: pointer;
+  color: var(--text-secondary);
 }
 
-/* ====================
-BOTONES DE LA BARRA
-==================== */
-.barra1 .btn {
-  position: relative; /* referencia para tooltip */
+.barra1 .btn- {
+  position: relative;
+  /* referencia para tooltip */
   width: 39px;
   height: 39px;
   margin-bottom: 0.5rem;
@@ -56,12 +70,20 @@ BOTONES DE LA BARRA
 }
 
 /* Empuja el penúltimo botón al fondo */
+
 .barra1 .btn:nth-last-child(2) {
   margin-top: auto;
 }
 
 /* Imágenes dentro de los botones */
+
 .barra1 .btn img {
+  width: 35px;
+  height: 35px;
+  user-select: none;
+}
+
+.barra1 .btn- img {
   width: 35px;
   height: 35px;
   user-select: none;
@@ -77,26 +99,24 @@ BOTONES DE LA BARRA
 #Ajustes {
   margin-bottom: 0.5rem;
 }
-/* ====================
-TOOLTIPS estilo VS Code
-==================== */
-.barra1 .btn::after {
+
+/* ==================== TOOLTIPS estilo VS Code ==================== */
+.barra1 .btn::after,
+.btn-::after {
   content: attr(data-tooltip);
   position: absolute;
-  left: 50px; /* al lado del botón */
+  left: 50px;
+  /* al lado del botón */
   top: 50%;
   transform: translateY(-50%) translateX(-6px);
-
   background: #252526;
   color: var(--text-tooltips);
   font-size: 12px;
   padding: 4px 8px;
   border-radius: 3px;
   white-space: nowrap;
-
   opacity: 0;
   pointer-events: none;
-
   transition:
     opacity 0.1s ease,
     transform 0.1s ease;
@@ -104,17 +124,17 @@ TOOLTIPS estilo VS Code
   z-index: 10;
 }
 
-.barra1 .btn::before {
+.barra1 .btn::before,
+.btn-::before {
   content: "";
   position: absolute;
-  left: 44px; /* borde del botón */
+  left: 44px;
+  /* borde del botón */
   top: 50%;
   transform: translateY(-50%) translateX(-6px);
-
   border-width: 5px;
   border-style: solid;
   border-color: transparent #252526 transparent transparent;
-
   opacity: 0;
   transition:
     opacity 0.1s ease,
@@ -126,16 +146,28 @@ TOOLTIPS estilo VS Code
 .barra1 .btn:hover::before {
   opacity: 1;
   transform: translateY(-50%) translateX(0);
+  z-index: 10;
 }
-/*====================
-BARRA SUPERIOR (Barra 2)
-=====================*/
+
+.barra1 .btn-:hover::after,
+.barra1 .btn-:hover::before {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+  z-index: 10;
+}
+
+
+.btn.panel-activo {
+  border-left: 2px solid rgb(36, 85, 134);
+}
+
+/*==================== BARRA SUPERIOR (Barra 2) =====================*/
 .barra2 {
   background-color: #181818;
   position: fixed;
   height: 3rem;
   width: calc(100% - 48px);
-  top: 0;
+  top: var(--h-sistem_bar);
   left: 48px;
   z-index: 1;
   border-radius: 1px;
@@ -156,7 +188,7 @@ BARRA SUPERIOR (Barra 2)
 .BT5,
 .BT6 {
   font-size: 1rem;
-  color: var(--text-primary);
+  color: var(--text-secondary);
   font-weight: bold;
   cursor: pointer;
   flex-shrink: 0;
@@ -174,7 +206,7 @@ BARRA SUPERIOR (Barra 2)
   background-position: left;
   background-repeat: no-repeat;
   background-size: 1.2rem;
-  background-image: url("img/Búsqueda.svg");
+  background-image: url("img/Busqueda.svg");
   padding-left: 1.2rem;
   box-sizing: border-box;
 }
@@ -183,10 +215,8 @@ BARRA SUPERIOR (Barra 2)
   transform: scale(1.005);
   box-shadow: 0 2px 8px rgba(32, 32, 32, 0.4);
 }
-/*===============================
-Barra de información del código
-=================================*/
 
+/*=============================== Barra de información del código =================================*/
 .InfoDelCódigo {
   display: flex;
   align-items: center;
@@ -194,13 +224,10 @@ Barra de información del código
   /* espacio uniforme */
   margin-top: 1.5rem;
   margin-bottom: 1.8rem;
-
   width: 100%;
   height: 3rem;
-
   border-radius: 0;
   margin-left: 0;
-
   font-size: var(--fs-small);
   color: var(--text-secondary);
 }
@@ -240,7 +267,6 @@ Barra de información del código
   align-items: center;
   gap: 1rem;
   justify-items: center;
-
   margin-left: auto;
 }
 
@@ -250,25 +276,20 @@ Barra de información del código
   text-align: center;
 }
 
-/*==========================
-BARRA DE PESTAÑAS (Barra 3)
-============================*/
+/*========================== BARRA DE PESTAÑAS (Barra 3) ============================*/
 .barra3 {
   position: fixed;
-  top: 3.5rem;
+  top: calc(3.5rem + var(--h-sistem_bar));
   left: 56px;
   width: calc(100% - 64px);
   height: var(--h-barra2);
-
   box-sizing: border-box;
   display: flex;
   align-items: center;
   user-select: none;
-
   background-color: var(--bg-main);
   border: 1px solid var(--border);
   border-radius: 1px;
-
   padding: 0;
   z-index: 1;
 }
@@ -294,7 +315,6 @@ BARRA DE PESTAÑAS (Barra 3)
   border: 1px solid var(--border);
   margin-top: -1px;
   z-index: 0;
-
   background-size: contain;
   cursor: pointer;
   background-repeat: no-repeat;
@@ -312,25 +332,40 @@ BARRA DE PESTAÑAS (Barra 3)
 
 .pestaña {
   height: calc(var(--h-barra2) - 2px);
+  min-width: 108px;
+  max-width: auto;
   padding: 0 0.5rem;
   margin-top: -1px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border: 1px solid var(--border);
   color: var(--text-secondary);
   font-size: 10px;
   flex-direction: row;
-
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   z-index: 1;
-
   user-select: none;
 }
+
+.pestaña:not(.activa) {
+  cursor: pointer;
+}
+
+.pestaña.activa {
+  background-color: #2d2d2d;
+  position: relative;
+  border-top: 1px solid rgb(36, 85, 134);
+}
+
+/* Pestaña cuyo data-tipo sea "editor" */
+.pestaña[data-tipo="editor"] {
+  justify-content: space-between;
+  font-size: min(11px);
+}
+
 
 .BtnPestaña {
   height: calc(var(--h-barra2) - 2px);
@@ -355,31 +390,170 @@ BARRA DE PESTAÑAS (Barra 3)
   margin-left: 0.5rem;
 }
 
-/* ====================
-===  VISUALIZADOR DE PESTAÑAS ====
-===================== */
-.caja-vis-pes {
+/*===================== Visualizacion =====================*/
+.caja-visualizacion {
   position: fixed;
-  top: calc(3.5rem + var(--h-barra2) + 8px);
+  top: calc(3.5rem + var(--h-barra2) + 8px + var(--h-sistem_bar));
   left: 56px;
   right: 8px;
   bottom: 8px;
-  background-color: transparent;
-  z-index: 0;
-  border-radius: 4px;
-  border: 1.5px solid var(--border);
-  box-sizing: border-box;
-  overflow: auto;
   display: flex;
+  overflow: auto;
+  background-color: transparent;
   background-image: url("img/background-info.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  box-sizing: border-box;
+  z-index: 0;
 }
 
-/*====================
-MEDIA QUERIES
-=====================*/
+/* Por esto */
+.visualizador {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: transparent;
+  box-sizing: border-box;
+  z-index: 2;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  /* sin opacity: 0 — anime.js lo maneja al mostrar */
+}
+
+/* Añade esto nuevo */
+#vis-editor {
+  display: none;
+  flex-direction: column;
+}
+
+#editor {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  background-color: #1f1f1f;
+}
+
+/*====================== Barra 4 =========================*/
+.barra4 {
+  position: fixed;
+  left: 52px;
+  top: calc(2px + (2*var(--h-barra2)));
+  bottom: 2px;
+  min-width: 17.5rem;
+  max-width: 70%;
+  display: none;
+  box-sizing: border-box;
+  background-color: var(--bg-main);
+  border: 1px solid var(--border);
+  border-radius: 1px;
+  z-index: 1;
+  user-select: none;
+  color: var(--text-secondary);
+}
+
+
+.w-bar {
+  position: absolute;
+  height: 100%;
+  width: 6px;
+  background-color: var(--border);
+  margin-top: 0%;
+  margin-left: calc(100% - 4px);
+  border-radius: 1px;
+  cursor: ew-resize;
+}
+
+.w-bar:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  transform: scaleX(1.1);
+}
+
+/*Btn 1*/
+.func-btn1 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: transparent;
+  box-sizing: border-box;
+  z-index: 1;
+  flex-direction: column;
+}
+
+.tit-btn1 {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.btn1-c {
+  display: flex;
+  flex-direction: column;
+}
+
+.p-btn1 {
+  margin: 3px;
+  text-align: left;
+}
+
+.lin-barra4 .txt-adv {
+  font-size: var(--fs-small);
+  opacity: 0;
+
+  height: 1.2rem;
+
+  margin-top: 0.5rem;
+  transition: opacity 0.3s ease;
+}
+
+.func-btn1:hover .txt-adv {
+  opacity: 1;
+}
+
+.y {
+  width: 1rem;
+  height: 1rem;
+  margin-left: auto;
+  margin-right: 7px;
+  background-size: contain;
+  background-image: url(img/Flecha-abajo.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.y:hover {
+  transform: scale(1.1);
+}
+
+.c-btn1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.txt-adv {
+  font-size: var(--fs-small);
+  display: none;
+  margin-top: 5px;
+  margin-left: 0;
+}
+
+button.txt-adv {
+  z-index: 1;
+}
+
+#btn1-open {
+  display: none;
+  width: 130px;
+  margin-left: 14px;
+  margin-bottom: 4px;
+}
+
+
+/*==================== MEDIA QUERIES =====================*/
 @media screen and (max-width: 768px) {
   .barra2 {
     flex-wrap: wrap;
@@ -411,6 +585,7 @@ MEDIA QUERIES
 }
 
 @media screen and (max-width: 480px) {
+
   .BT1,
   .BT2,
   .BT3,
@@ -436,23 +611,21 @@ MEDIA QUERIES
   }
 }
 
+
+
+
 :root {
   --bg-main: #181818;
   --border: #444;
-
   --text-tooltips: #b8b8b8;
   --text-secondary: #727272;
   --text-primary: #888888;
-
   --fs-smallest: 8px;
   --fs-small: 12px;
   --fs-normal: 16px;
   --fs-large: 24px;
   --h-barra2: 1.5rem;
+  --h-sistem_bar: 40px;
 }
 
-/* 12px detalles
- 14–16px texto normal 
- 20–24px títulos
-*/
-
+/* 12px detalles 14–16px texto normal 20–24px títulos */
