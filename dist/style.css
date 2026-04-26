@@ -1,23 +1,9 @@
-/* BARA GENERAL */
-.sistem-bar {
-  position: fixed;
-  background: var(--bg-submain);
-  height: 40px;
-  width: 100%;
-  top: 0%;
-  left: 0%;
-  right: 0%;
-  z-index: 1000;
-  display: flex;
-  user-select: none;
-}
-
 /* APP */
 
 .app {
   position: relative;
   overflow: hidden;
-  padding-top: 80px;
+  padding-top: 0px;
   display: flex;
   height: 100vh;
   width: 100%;
@@ -622,7 +608,7 @@ button.txt-adv {
   --fs-normal: 16px;
   --fs-large: 24px;
   --h-barra2: 1.5rem;
-  --h-sistem_bar: 40px;
+  --h-sistem_bar: 0px;
 }
 
 /* 12px detalles 14–16px texto normal 20–24px títulos */
